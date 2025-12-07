@@ -1,0 +1,75 @@
+:root{
+  --bg:#ffffff;
+  --panel:#f6f7f9;
+  --muted:#6b7280;
+  --accent:#16a34a;
+  --accent2:#f97316;
+  --text:#0f1724;
+  --card:#ffffff;
+  --border:#e6e9ee;
+  --glass: rgba(15,23,36,0.03);
+}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#ffffff 0%, #f7fafc 100%);color:var(--text);font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+.container{max-width:1100px;margin:20px auto;padding:0 18px}
+.site-header{background:#fff;padding:12px 0;border-bottom:1px solid var(--border)}
+.site-header .container{display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:700;color:var(--text);text-decoration:none}
+.site-header nav a{margin-left:16px;color:var(--muted);text-decoration:none}
+.btn{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;border:0;cursor:pointer}
+.btn.alt{background:transparent;border:1px solid var(--border);color:var(--text)}
+.small{padding:6px 8px;font-size:13px}
+
+/* cards */
+.card{background:var(--card);padding:16px;border-radius:10px;border:1px solid var(--border);box-shadow:0 6px 18px rgba(15,23,36,0.02);margin-bottom:16px}
+.hero{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:20px}
+.hero-left h1{margin:0 0 8px 0;font-size:28px}
+.lead{color:var(--muted);margin:0 0 12px 0}
+.hero-cta .btn{margin-right:8px}
+.stat{padding:12px;border-radius:8px;text-align:center;border:1px solid var(--border);min-width:100px}
+.stat-value{font-weight:800;font-size:18px}
+.section-title{font-size:18px;margin:6px 0 12px 0}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.trader-card{padding:12px;border-radius:8px;border:1px solid var(--border);background:linear-gradient(180deg,#fff,#fbfdff)}
+.trader-name{font-weight:700}
+.trader-meta{color:var(--muted);font-size:13px}
+.traders-table{width:100%;border-collapse:collapse}
+.traders-table th, .traders-table td{padding:12px;border-bottom:1px solid var(--glass);text-align:left}
+.traders-table th{color:var(--muted);font-size:12px}
+.small-spark{width:140px;height:36px;margin:6px 0}
+.controls{display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.controls input, .controls select{padding:10px;border-radius:8px;border:1px solid var(--border);background:#fff;color:var(--text)}
+.empty{padding:18px;background:var(--glass);border-radius:8px;color:var(--muted);text-align:center;margin-top:12px}
+.site-footer{margin:36px 0 60px;color:var(--muted);font-size:13px;text-align:center}
+.back{color:var(--muted);text-decoration:none;margin-bottom:12px;display:inline-block}
+
+/* modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(15,23,36,0.5);visibility:hidden;opacity:0;transition:all .12s}
+.modal[aria-hidden="false"]{visibility:visible;opacity:1}
+.modal-panel{background:var(--card);padding:18px;border-radius:8px;width:360px;position:relative}
+.modal-close{position:absolute;right:8px;top:8px;border:0;background:transparent;font-size:18px;cursor:pointer}
+.form-row{margin:8px 0}
+
+/* dashboard */
+.flex-row{display:flex;gap:12px;align-items:stretch;flex-wrap:wrap}
+.stat-card{flex:1;text-align:center}
+.stat-amount{font-weight:800;font-size:20px}
+.wallet-box{padding:12px;border-radius:8px;border:1px solid var(--border);display:flex;gap:10px;align-items:center;justify-content:space-between}
+
+/* small helpers */
+.muted{color:var(--muted);font-size:13px}
+
+/* reveal animation */
+.reveal-grid .trader-card{opacity:0;transform:translateY(12px);transition:all .5s ease}
+.reveal-grid.show .trader-card{opacity:1;transform:none}
+
+/* responsive */
+@media (max-width:820px){
+  .hero{flex-direction:column;align-items:flex-start}
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .container{padding:0 14px}
+}
+@media (max-width:480px){
+  .cards-grid{grid-template-columns:repeat(1,1fr)}
+  .controls{flex-direction:column;align-items:stretch}
+}
