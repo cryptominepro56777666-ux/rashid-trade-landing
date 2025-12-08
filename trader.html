@@ -78,11 +78,22 @@
 <script src="script.js" defer></script>
 <!-- START DASHBOARD (ChatGPT) -->
 <script>
-// -------- Deterministic Fake Data by ID --------
-
-// Read trader ID from URL
+// -------- Access Code Check --------
 const params = new URLSearchParams(window.location.search);
 const traderID = parseInt(params.get("id") || "1");
+const trader = TRADERS.find(t => t.id === traderID);
+if (!trader) {
+  alert("Trader not found");
+  window.location = "markets.html";
+} else {
+  const enteredCode = prompt(`Enter the 4-digit access code for ${trader.name}:`);
+  if (enteredCode !== trader.accessCode.toString()) {
+    alert("Incorrect access code");
+    window.location = "markets.html";
+  }
+}
+
+// -------- Deterministic Fake Data by ID --------
 
 // Simple deterministic PRNG
 function seedRandom(seed) {
@@ -95,10 +106,10 @@ const rand = seedRandom(traderID * 999);
 
 // Deterministic fake values
 const fakeData = {
-  name: "Trader #" + traderID,
-  roi: Math.round(rand() * 120 - 20),            // -20% to +100%
-  followers: Math.floor(rand() * 5000 + 100),
-  risk: ["Low", "Medium", "High"][Math.floor(rand() * 3)],
+  name: trader.name,
+  roi: trader.roi,
+  followers: trader.profit, // using profit as followers for demo
+  risk: trader.riskLevel,
   winrate: Math.round(rand() * 30 + 55),         // 55%–85%
   trades: []
 };

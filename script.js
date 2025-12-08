@@ -286,3 +286,98 @@ function boot(){
 }
 
 document.addEventListener('DOMContentLoaded', boot);
+// ==DEPOSIT-HELPER-START==
+// Deposit page helpers (auto-generated)
+(function(){
+  // YOUR wallet address and trust-wallet link (user provided)
+  const WALLET_ADDR = "0x5bB1708a95a34f994F1a2Ec540AaC9d8D5174201";
+  const TRUSTWALLET_LINK = "https://link.trustwallet.com/send?asset=c20000714_t0x55d398326f99059fF775485246999027B3197955&address=0x5bB1708a95a34f994F1a2Ec540AaC9d8D5174201";
+
+  function el(id){ return document.getElementById(id); }
+
+  // Populate deposit page when loaded
+  function populateDepositPage(){
+    if(!document.body || !document.body.dataset || !document.body.dataset.page) {
+      // fallback check by pathname
+      if(!location.pathname.includes('deposit')) return;
+    } else {
+      if(document.body.dataset.page !== 'deposit') return;
+    }
+
+    // fill address
+    const wa = el('walletAddress');
+    if(wa) wa.textContent = WALLET_ADDR;
+
+    // set open link and QR (QR built from Trust Wallet link so scanning opens the app)
+    const a = el('openExternal');
+    if(a) { a.href = TRUSTWALLET_LINK; a.target = "_blank"; }
+
+    const qr = el('qrImg');
+    if(qr){
+      // Google Chart API (public) for QR generation — encodes the Trust Wallet link
+      const src = 'https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=' + encodeURIComponent(TRUSTWALLET_LINK);
+      qr.src = src;
+    }
+
+    renderDepositTable();
+  }
+
+  // copy wallet address
+  window.copyWallet = function(){
+    const wa = el('walletAddress');
+    if(!wa) return alert('Address not found');
+    navigator.clipboard.writeText(wa.textContent.trim()).then(()=>{
+      alert('Wallet address copied to clipboard');
+    }).catch(()=> alert('Copy failed — your browser may block clipboard access'));
+  };
+
+  // Demo deposit tracking (localStorage)
+  function loadDeposits(){
+    try{
+      const raw = localStorage.getItem('demoDeposits') || '[]';
+      return JSON.parse(raw);
+    }catch(e){
+      return [];
+    }
+  }
+  function saveDeposits(list){
+    localStorage.setItem('demoDeposits', JSON.stringify(list));
+  }
+
+  window.addDemoDeposit = function(){
+    const amtEl = el('depositAmount');
+    if(!amtEl) return;
+    const amt = amtEl.value.trim();
+    if(!amt) return alert('Enter an amount');
+    const deposits = loadDeposits();
+    deposits.unshift({time: new Date().toLocaleString(), amount: amt});
+    saveDeposits(deposits);
+    amtEl.value = '';
+    renderDepositTable();
+  };
+
+  function renderDepositTable(){
+    const tbody = document.querySelector('#depositTable tbody');
+    if(!tbody) return;
+    const list = loadDeposits();
+    tbody.innerHTML = '';
+    list.forEach((d,i)=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = '<td style="padding:8px;border-bottom:1px solid var(--glass)">'+d.time+'</td>'
+                   + '<td style="padding:8px;border-bottom:1px solid var(--glass)">'+d.amount+'</td>'
+                   + '<td style="padding:8px;border-bottom:1px solid var(--glass)"><button class="btn alt" onclick="removeDeposit('+i+')">Remove</button></td>';
+      tbody.appendChild(tr);
+    });
+  }
+
+  window.removeDeposit = function(index){
+    const list = loadDeposits();
+    list.splice(index,1);
+    saveDeposits(list);
+    renderDepositTable();
+  };
+
+  // run on DOM ready
+  document.addEventListener('DOMContentLoaded', populateDepositPage);
+})();
+// ==DEPOSIT-HELPER-END==
