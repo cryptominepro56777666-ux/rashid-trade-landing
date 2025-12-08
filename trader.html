@@ -76,5 +76,66 @@
 </footer>
 
 <script src="script.js" defer></script>
+<!-- START DASHBOARD (ChatGPT) -->
+<script>
+// -------- Deterministic Fake Data by ID --------
+
+// Read trader ID from URL
+const params = new URLSearchParams(window.location.search);
+const traderID = parseInt(params.get("id") || "1");
+
+// Simple deterministic PRNG
+function seedRandom(seed) {
+  return function() {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+  };
+}
+const rand = seedRandom(traderID * 999);
+
+// Deterministic fake values
+const fakeData = {
+  name: "Trader #" + traderID,
+  roi: Math.round(rand() * 120 - 20),            // -20% to +100%
+  followers: Math.floor(rand() * 5000 + 100),
+  risk: ["Low", "Medium", "High"][Math.floor(rand() * 3)],
+  winrate: Math.round(rand() * 30 + 55),         // 55%–85%
+  trades: []
+};
+
+// Generate fake trades
+for (let i = 0; i < 10; i++) {
+  fakeData.trades.push({
+    symbol: ["EURUSD","BTCUSD","XAUUSD","ETHUSD","GBPJPY"][Math.floor(rand()*5)],
+    type: rand() > 0.5 ? "Buy" : "Sell",
+    open: (rand()*10000).toFixed(2),
+    close: (rand()*10000).toFixed(2),
+    pnl: (rand()*300 - 150).toFixed(2),
+    duration: Math.floor(rand()*12+1) + "h"
+  });
+}
+
+// Now update your HTML elements here
+document.getElementById("traderName").innerText = fakeData.name;
+document.getElementById("traderROI").innerText = fakeData.roi + "%";
+document.getElementById("traderFollowers").innerText = fakeData.followers;
+document.getElementById("traderRisk").innerText = fakeData.risk;
+
+// Populate trades table
+const tbody = document.getElementById("tradesTable").querySelector("tbody");
+fakeData.trades.forEach(t => {
+  const row = `
+    <tr>
+      <td>${t.symbol}</td>
+      <td>${t.type}</td>
+      <td>${t.open}</td>
+      <td>${t.close}</td>
+      <td>${t.pnl}</td>
+      <td>${t.duration}</td>
+    </tr>`;
+  tbody.insertAdjacentHTML("beforeend", row);
+});
+</script>
+<!-- END DASHBOARD -->
 </body>
 </html>
