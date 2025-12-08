@@ -18,7 +18,8 @@ const TRADERS = (function gen(){
       country: countries[i % countries.length],
       tradingStyle: styles[i % styles.length],
       description: `${n} is a ${styles[i % styles.length]} trader focusing on multi-asset strategies.`,
-      chartData: values
+      chartData: values,
+      accessCode: Math.floor(1000 + Math.random() * 9000) // 4-digit code
     };
   });
 })();
@@ -79,10 +80,12 @@ function renderMarkets(){
   function buildRows(list){
     tbody.innerHTML = '';
     list.forEach(t=>{
+      const isSpotlight = t.name === 'Rashid Ali';
       const tr = document.createElement('tr');
+      tr.className = isSpotlight ? 'spotlight-trader' : '';
       tr.innerHTML = `
         <td>
-          <div class="trader-name">${t.name}</div>
+          <div class="trader-name">${t.name}${isSpotlight ? ' <span class="spotlight-badge">SPOTLIGHT</span>' : ''}</div>
           <div class="trader-meta">${t.tradingStyle} · ${t.country}</div>
         </td>
         <td>${t.roi}</td>
@@ -90,7 +93,7 @@ function renderMarkets(){
         <td>${t.avgTradeDuration}</td>
         <td>${t.riskLevel}</td>
         <td>${sparkSVG(t.chartData)}</td>
-        <td><button class="btn followBtn" data-id="${t.id}">Follow</button></td>
+        <td><button class="btn followBtn" data-id="${t.id}">Follow</button> <button class="btn viewBtn" data-id="${t.id}">View</button></td>
       `;
       tbody.appendChild(tr);
     });
@@ -112,6 +115,7 @@ function renderMarkets(){
     if(sort.value === 'profit') result.sort((a,b)=>b.profit - a.profit);
     buildRows(result);
     bindFollowButtons();
+    bindViewButtons();
   }
 
   $('#resetBtn').addEventListener('click', ()=>{
