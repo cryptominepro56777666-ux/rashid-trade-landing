@@ -1,36 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dashboard — Trade With Rashid</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="dashboard">
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="./index.html">Trade With Rashid</a>
+    <nav>
+      <a href="./markets.html">Markets</a>
+      <a href="./dashboard.html">Dashboard</a>
+      <a href="./deposit.html">Deposit</a>
+      <a href="./about.html">About</a>
+    </nav>
+    <div class="user-info">
+      <span id="userEmail">user@example.com</span>
+      <button id="logoutBtn" class="btn small alt">Logout</button>
+    </div>
+  </div>
+</header>
+
 <main class="container">
+  <section class="portfolio-card card">
+    <h3>Portfolio Overview</h3>
+    <div class="portfolio-value" id="portfolioValue">$2,450.00</div>
+    <div class="muted">Total Value (USDT)</div>
+  </section>
+
+  <section class="active-plan-card card">
+    <h3>Active Plan</h3>
+    <div id="activePlan">Basic Plan</div>
+    <div class="muted">Current Investment Plan</div>
+  </section>
+
   <section class="card">
-    <h2>Your Dashboard</h2>
-    <div class="flex-row">
-      <div class="card stat-card">
-        <div class="muted">Total Profit</div>
-        <div class="stat-amount" id="totalProfit">$1,452.88</div>
-      </div>
-      <div class="card stat-card">
-        <div class="muted">Wallet (USDT TRC20)</div>
-        <div id="walletBalance">$0.00</div>
-      </div>
-      <div class="card stat-card">
-        <div class="muted">Open Trades</div>
-        <div id="openTrades">3</div>
-      </div>
+    <h3>Profit Chart</h3>
+    <div class="profit-chart" id="profitChart">
+      <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="0,150 50,140 100,130 150,120 200,110 250,100 300,90 350,80 400,70" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="0" y1="150" x2="400" y2="70" stroke="#16a34a" stroke-width="2" opacity="0.3"/>
+      </svg>
     </div>
   </section>
 
   <section class="card">
-    <h3>Recent (demo) transactions</h3>
-    <table class="traders-table" id="txTable">
-      <thead><tr><th>Time</th><th>Symbol</th><th>Size</th><th>PL</th></tr></thead>
-      <tbody></tbody>
+    <h3>Transaction History</h3>
+    <table class="traders-table" id="transactionTable">
+      <thead><tr><th>Date</th><th>Type</th><th>Amount</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>2024-01-15</td><td>Deposit</td><td>$100.00</td><td>Completed</td></tr>
+        <tr><td>2024-01-14</td><td>Profit</td><td>$45.20</td><td>Completed</td></tr>
+        <tr><td>2024-01-13</td><td>Deposit</td><td>$500.00</td><td>Completed</td></tr>
+      </tbody>
     </table>
   </section>
 
-  <section class="card">
-    <h3>Quick Actions</h3>
-    <div class="flex-row">
-      <button class="btn" onclick="window.location='markets.html'">Browse Traders</button>
-      <button class="btn" onclick="window.location='deposit.html'">Deposit Funds</button>
-      <button class="btn alt" onclick="openLogin()">Settings</button>
-    </div>
+  <section class="wallet-view card">
+    <h3>Wallet Balance</h3>
+    <div class="wallet-balance" id="walletBalance">$1,245.20</div>
+    <div class="muted">Available USDT</div>
+    <button class="btn" onclick="window.location='./deposit.html'">Add Funds</button>
   </section>
 </main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>© <span id="year"></span> Trade With Rashid — Demo</div>
+    <div class="muted">Fictional data for demo purposes only.</div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
