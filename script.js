@@ -5,7 +5,7 @@ const TRADERS = (function gen(){
   const countries = ['US','GB','JP','DE','IN','BR','AU','SG'];
   const risk = ['Low','Medium','High'];
   const names = ['Rashid Ali','Alex Morgan','Maria Silva','Chen Wei','Olivia Park','Mateo Ruiz','Sofia Ivanova','Liam Brown','Ava Johnson','Noah Lee','Emma Davis','Mason Clark','Isabella Luis','Ethan Garcia','Mia Patel','Lucas Schmidt','Amelia Nguyen','Logan Turner','Harper Hill','James King'];
-  return names.map((n,i)=>{
+  const traders = names.map((n,i)=>{
     const base = 50 + i*2;
     const values = Array.from({length:30}, (_,k)=> +(base + Math.sin((k+i)/5)*8 + Math.random()*6).toFixed(2));
     return {
@@ -22,6 +22,8 @@ const TRADERS = (function gen(){
       accessCode: Math.floor(1000 + Math.random() * 9000) // 4-digit code
     };
   });
+  console.log('Trader Access Codes:', traders.map(t => `${t.name}: ${t.accessCode}`));
+  return traders;
 })();
 
 function $(s){return document.querySelector(s)}
