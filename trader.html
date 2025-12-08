@@ -1,52 +1,80 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Trader Profile — Trade With Rashid</title>
+<link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!doctype html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta charset="utf-8" /&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</span></p>
-<p class="p1"><span class="s1">&lt;title&gt;Trader — Trade With Rashid&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1">&lt;link rel="stylesheet" href="styles.css"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body data-page="trader"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;header class="site-header"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;a class="brand" href="index.html"&gt;Trade With Rashid&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;nav&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="markets.html"&gt;Markets&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="dashboard.html"&gt;Dashboard&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="about.html"&gt;About&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button id="loginBtn3" class="btn small"&gt;Login&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/header&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;main class="container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;a href="markets.html" class="back"&gt;← Back to Markets&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;section id="traderDetail" class="card"&gt;&lt;/section&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/main&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;footer class="site-footer"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div&gt;© &lt;span id="year3"&gt;&lt;/span&gt; Trade With Rashid — Demo&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/footer&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;script src="script.js" defer&gt;&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+<body data-page="trader">
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">Trade With Rashid</a>
+    <nav>
+      <a href="markets.html">Markets</a>
+      <a href="dashboard.html" id="nav-dashboard-3">Dashboard</a>
+      <a href="about.html">About</a>
+    </nav>
+    <button id="loginBtn3" class="btn small">Login</button>
+  </div>
+</header>
+
+<main class="container">
+  <section class="trader-profile card">
+    <div class="trader-header">
+      <div class="trader-avatar">
+        <img id="traderAvatar" src="" alt="Trader Avatar" />
+      </div>
+      <div class="trader-info">
+        <h1 id="traderName">Trader Name</h1>
+        <p id="traderStyle">Trading Style</p>
+        <div class="trader-stats">
+          <div class="stat">
+            <div class="stat-value" id="traderROI">0%</div>
+            <div class="stat-label">ROI</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" id="traderFollowers">0</div>
+            <div class="stat-label">Followers</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" id="traderRisk">Low</div>
+            <div class="stat-label">Risk</div>
+          </div>
+        </div>
+      </div>
+      <div class="trader-actions">
+        <button id="followBtn" class="btn">Follow</button>
+        <button id="backBtn" class="btn alt" onclick="history.back()">Back to Markets</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="trader-performance card">
+    <h2>Performance Overview</h2>
+    <div id="performanceChart" class="chart-placeholder">
+      <p>Performance chart would go here (demo)</p>
+    </div>
+  </section>
+
+  <section class="trader-trades card">
+    <h2>Recent Trades</h2>
+    <table class="trades-table" id="tradesTable">
+      <thead>
+        <tr><th>Symbol</th><th>Type</th><th>Open</th><th>Close</th><th>P&L</th><th>Duration</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>© <span id="year3"></span> Trade With Rashid — Demo</div>
+    <div class="muted">Fictional data only.</div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
 </body>
 </html>

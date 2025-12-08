@@ -1,86 +1,69 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Markets — Trade With Rashid</title>
+<link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!doctype html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta charset="utf-8" /&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</span></p>
-<p class="p1"><span class="s1">&lt;title&gt;Markets — Trade With Rashid&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1">&lt;link rel="stylesheet" href="styles.css"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body data-page="markets"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;header class="site-header"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;a class="brand" href="index.html"&gt;Trade With Rashid&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;nav&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="markets.html"&gt;Markets&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="dashboard.html" id="nav-dashboard-2"&gt;Dashboard&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="about.html"&gt;About&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button id="loginBtn2" class="btn small"&gt;Login&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/header&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;main class="container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;section class="controls card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;input id="searchInput" placeholder="Search trader or style..." /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;select id="filterRisk"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;option value=""&gt;All risk&lt;/option&gt;&lt;option&gt;Low&lt;/option&gt;&lt;option&gt;Medium&lt;/option&gt;&lt;option&gt;High&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;select id="filterStyle"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;option value=""&gt;All styles&lt;/option&gt;&lt;option&gt;Scalping&lt;/option&gt;&lt;option&gt;Swing&lt;/option&gt;&lt;option&gt;Long-Term&lt;/option&gt;&lt;option&gt;AI Hybrid&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;select id="sortBy"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;option value="roi"&gt;ROI (High → Low)&lt;/option&gt;&lt;option value="followers"&gt;Followers (High → Low)&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button id="resetBtn" class="btn small alt"&gt;Reset&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;section class="card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;table class="traders-table" id="tradersTable" aria-label="Traders"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;thead&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;tr&gt;&lt;th&gt;Trader&lt;/th&gt;&lt;th&gt;ROI %&lt;/th&gt;&lt;th&gt;Followers&lt;/th&gt;&lt;th&gt;Avg (days)&lt;/th&gt;&lt;th&gt;Risk&lt;/th&gt;&lt;th&gt;Perf&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/thead&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;tbody&gt;&lt;/tbody&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/table&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="emptyState" class="empty" hidden&gt;No traders found.&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/main&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;footer class="site-footer"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div&gt;© &lt;span id="year2"&gt;&lt;/span&gt; Trade With Rashid — Demo&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="muted"&gt;Fictional data only.&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/footer&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- Follow modal --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;div id="followModal" class="modal" aria-hidden="true"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="modal-panel"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h3 id="modalTitle2"&gt;Follow trader&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p id="modalBody2"&gt;You are about to follow (demo)&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="modal-actions"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button id="confirmFollow" class="btn"&gt;Confirm&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button id="closeModalBtn" class="btn alt" onclick="closeFollow()"&gt;Cancel&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;script src="script.js" defer&gt;&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+<body data-page="markets">
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">Trade With Rashid</a>
+    <nav>
+      <a href="markets.html">Markets</a>
+      <a href="dashboard.html" id="nav-dashboard-2">Dashboard</a>
+      <a href="about.html">About</a>
+    </nav>
+    <button id="loginBtn2" class="btn small">Login</button>
+  </div>
+</header>
+
+<main class="container">
+  <section class="controls card">
+    <input id="searchInput" placeholder="Search trader or style..." />
+    <select id="filterRisk">
+      <option value="">All risk</option><option>Low</option><option>Medium</option><option>High</option>
+    </select>
+    <select id="filterStyle">
+      <option value="">All styles</option><option>Scalping</option><option>Swing</option><option>Long-Term</option><option>AI Hybrid</option>
+    </select>
+    <select id="sortBy">
+      <option value="roi">ROI (High → Low)</option><option value="followers">Followers (High → Low)</option>
+    </select>
+    <button id="resetBtn" class="btn small alt">Reset</button>
+  </section>
+
+  <section class="card">
+    <table class="traders-table" id="tradersTable" aria-label="Traders">
+      <thead>
+        <tr><th>Trader</th><th>ROI %</th><th>Followers</th><th>Avg (days)</th><th>Risk</th><th>Perf</th><th></th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div id="emptyState" class="empty" hidden>No traders found.</div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>© <span id="year2"></span> Trade With Rashid — Demo</div>
+    <div class="muted">Fictional data only.</div>
+  </div>
+</footer>
+
+<!-- Follow modal -->
+<div id="followModal" class="modal" aria-hidden="true">
+  <div class="modal-panel">
+    <h3 id="modalTitle2">Follow trader</h3>
+    <p id="modalBody2">You are about to follow (demo)</p>
+    <div class="modal-actions">
+      <button id="confirmFollow" class="btn">Confirm</button>
+      <button id="closeModalBtn" class="btn alt" onclick="closeFollow()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js" defer></script>
 </body>
 </html>
