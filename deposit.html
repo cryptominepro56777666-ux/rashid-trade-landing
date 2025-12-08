@@ -1,74 +1,11 @@
-<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Deposit — Trade With Rashid</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body data-page="deposit">
-<header class="site-header">
-  <div class="container">
-    <a class="brand" href="./index.html">Trade With Rashid</a>
-    <nav>
-      <a href="./markets.html">Markets</a>
-      <a href="./dashboard.html">Dashboard</a>
-      <a href="./deposit.html">Deposit</a>
-      <a href="./about.html">About</a>
-    </nav>
-    <button id="loginBtn" class="btn small">Login</button>
-  </div>
-</header>
-
-<main class="container">
-  <section class="card deposit-card">
-    <h2>Deposit USDT (TRC-20) — Demo</h2>
-    <p class="muted">Send only USDT (TRC-20) to this address. This is a demo page — confirm amounts and network before sending.</p>
-
-    <div class="wallet-box" style="flex-direction:column;align-items:center;gap:12px">
-      <div style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px">
-        <div style="flex:1;word-break:break-all;">
-          <strong>Address (TRC-20):</strong>
-          <div id="walletAddress" style="margin-top:6px;font-family:monospace"></div>
-        </div>
-        <div style="min-width:140px;text-align:center">
-          <img id="qrImg" alt="QR code" style="width:140px;height:140px;border-radius:8px;border:1px solid var(--border)" />
-        </div>
-      </div>
-
-      <div style="width:100%;display:flex;gap:10px;justify-content:center">
-        <button class="btn" onclick="copyWallet()">Copy Address</button>
-        <a id="openExternal" class="btn alt" href="#" target="_blank" rel="noopener">Open Trust Wallet</a>
-      </div>
-    </div>
-
-    <div style="margin-top:16px" class="card">
-      <h3>Demo Deposit Tracker</h3>
-      <p class="muted">Mark a deposit as paid after you receive funds (demo only — no real checks).</p>
-
-      <div style="display:flex;gap:8px;align-items:center;">
-        <input id="depositAmount" placeholder="Amount (USDT)" style="padding:8px;border-radius:6px;border:1px solid var(--border);flex:1" />
-        <button class="btn" onclick="addDemoDeposit()">Mark as Paid</button>
-      </div>
-
-      <table style="width:100%;margin-top:12px;border-collapse:collapse" id="depositTable">
-        <thead><tr><th style="text-align:left;padding:8px;border-bottom:1px solid var(--glass)">Time</th><th style="text-align:left;padding:8px;border-bottom:1px solid var(--glass)">Amount</th><th style="text-align:left;padding:8px;border-bottom:1px solid var(--glass)">Action</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <div>© Trade With Rashid — Demo</div>
-  </div>
-</footer>
-
-<script src="script.js" defer></script>
-<script>
-  // deposit page will be populated by script.js helper
-</script>
-</body>
-</html>
+=======
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+  <meta charset="utf-8" />
