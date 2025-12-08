@@ -4,7 +4,7 @@ const TRADERS = (function gen(){
   const styles = ['Scalping','Swing','Long-Term','AI Hybrid'];
   const countries = ['US','GB','JP','DE','IN','BR','AU','SG'];
   const risk = ['Low','Medium','High'];
-  const names = ['Rashid Ali','Alex Morgan','Maria Silva','Chen Wei','Olivia Park','Mateo Ruiz','Sofia Ivanova','Liam Brown','Ava Johnson','Noah Lee','Emma Davis','Mason Clark','Isabella Luis','Ethan Garcia','Mia Patel','Lucas Schmidt','Amelia Nguyen','Logan Turner','Harper Hill','James King'];
+  const names = ['Rashid Ali','Alex Morgan','John Carter','Bella Singh','CryptoGhost','ProfitMaster','Maria Silva','Chen Wei','Olivia Park','Mateo Ruiz','Sofia Ivanova','Liam Brown','Ava Johnson','Noah Lee','Emma Davis','Mason Clark','Isabella Luis','Ethan Garcia','Mia Patel','Lucas Schmidt'];
   const traders = names.map((n,i)=>{
     const base = 50 + i*2;
     const values = Array.from({length:30}, (_,k)=> +(base + Math.sin((k+i)/5)*8 + Math.random()*6).toFixed(2));
@@ -100,6 +100,8 @@ function renderMarkets(){
       tbody.appendChild(tr);
     });
     empty.hidden = list.length > 0;
+    bindFollowButtons();
+    bindViewButtons();
   }
 
   const search = $('#searchInput');
@@ -116,8 +118,6 @@ function renderMarkets(){
     if(sort.value === 'roi') result.sort((a,b)=>b.roi - a.roi);
     if(sort.value === 'profit') result.sort((a,b)=>b.profit - a.profit);
     buildRows(result);
-    bindFollowButtons();
-    bindViewButtons();
   }
 
   $('#resetBtn').addEventListener('click', ()=>{
@@ -133,6 +133,21 @@ function bindFollowButtons(){
     btn.onclick = (e)=>{
       const id = e.currentTarget.dataset.id;
       showFollowModal(id);
+    };
+  });
+}
+
+function bindViewButtons(){
+  $all('.viewBtn').forEach(btn=>{
+    btn.onclick = (e)=>{
+      const id = e.currentTarget.dataset.id;
+      if(!localStorage.getItem('demoUser')) {
+        openLogin();
+        // After login, redirect to trader page
+        window.viewTraderId = id;
+      } else {
+        window.location = `trader.html?id=${id}`;
+      }
     };
   });
 }
@@ -215,6 +230,13 @@ function populateDashboard(){
     // also check pathname
     if(!location.pathname.includes('dashboard')) return;
   }
+
+  // Check login
+  if(!localStorage.getItem('demoUser')) {
+    window.location = 'index.html';
+    return;
+  }
+
   const txBody = $('#txTable tbody');
   if(!txBody) return;
   txBody.innerHTML = '';
@@ -235,11 +257,23 @@ function populateDashboard(){
 /* Login behavior (fake) */
 function openLogin(){ $('#loginModal').setAttribute('aria-hidden','false'); }
 function closeLogin(){ $('#loginModal').setAttribute('aria-hidden','true'); }
-function doGoogle(){ alert('Google login (demo)'); localStorage.setItem('demoUser','google'); window.location='dashboard.html'; }
+function doGoogle(){
+  alert('Google login (demo)');
+  localStorage.setItem('demoUser','google');
+  if(window.viewTraderId) {
+    window.location = `trader.html?id=${window.viewTraderId}`;
+  } else {
+    window.location='dashboard.html';
+  }
+}
 function doLogin(){
   const email = $('#emailField').value || 'user@demo';
   localStorage.setItem('demoUser', email);
-  window.location='dashboard.html';
+  if(window.viewTraderId) {
+    window.location = `trader.html?id=${window.viewTraderId}`;
+  } else {
+    window.location='dashboard.html';
+  }
 }
 function doLogout(){
   localStorage.removeItem('demoUser');
@@ -317,6 +351,15 @@ document.addEventListener('DOMContentLoaded', boot);
       // Google Chart API (public) for QR generation — encodes the Trust Wallet link
       const src = 'https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=' + encodeURIComponent(TRUSTWALLET_LINK);
       qr.src = src;
+    }
+
+    // Auto-fill amount from plan
+    const urlParams = new URLSearchParams(window.location.search);
+    const plan = urlParams.get('plan');
+    const amountField = el('depositAmount');
+    if(plan && amountField) {
+      const amounts = {basic: '100', pro: '500', ultra: '1000'};
+      if(amounts[plan]) amountField.value = amounts[plan];
     }
 
     renderDepositTable();
