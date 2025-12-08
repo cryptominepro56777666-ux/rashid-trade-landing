@@ -12,7 +12,7 @@ const TRADERS = (function gen(){
       id: i+1,
       name: n,
       roi: +(Math.random()*120).toFixed(2),
-      followers: Math.floor(Math.random()*49000 + 50),
+      profit: Math.floor(Math.random()*49000 + 50),
       avgTradeDuration: Math.floor(Math.random()*9 + 1),
       riskLevel: risk[i % risk.length],
       country: countries[i % countries.length],
@@ -54,7 +54,7 @@ function renderTopGrid(){
       <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
         <div>
           <div style="font-weight:700">${t.roi}%</div>
-          <div class="trader-meta">${format(t.followers)} followers</div>
+          <div class="trader-meta">${format(t.profit)} profit</div>
         </div>
         <div>
           <a class="btn" href="trader.html?id=${t.id}">View</a>
@@ -86,7 +86,7 @@ function renderMarkets(){
           <div class="trader-meta">${t.tradingStyle} · ${t.country}</div>
         </td>
         <td>${t.roi}</td>
-        <td>${format(t.followers)}</td>
+        <td>${format(t.profit)}</td>
         <td>${t.avgTradeDuration}</td>
         <td>${t.riskLevel}</td>
         <td>${sparkSVG(t.chartData)}</td>
@@ -109,7 +109,7 @@ function renderMarkets(){
     if(risk.value) result = result.filter(t => t.riskLevel === risk.value);
     if(style.value) result = result.filter(t => t.tradingStyle === style.value);
     if(sort.value === 'roi') result.sort((a,b)=>b.roi - a.roi);
-    if(sort.value === 'followers') result.sort((a,b)=>b.followers - a.followers);
+    if(sort.value === 'profit') result.sort((a,b)=>b.profit - a.profit);
     buildRows(result);
     bindFollowButtons();
   }
@@ -166,7 +166,7 @@ function renderTraderDetails(){
           </div>
           <div style="margin-left:auto;text-align:right">
             <div style="font-weight:800;font-size:20px">${t.roi}%</div>
-            <div class="trader-meta">${format(t.followers)} followers</div>
+            <div class="trader-meta">${format(t.profit)} profit</div>
           </div>
         </div>
         <div style="margin-top:12px">${bigLineSVG(t.chartData,760,160)}</div>
